@@ -5,6 +5,7 @@ function RandomColorGrid() {
   const [gridColors, setGridColors] = useState([]);
   const rows = 3,
     cols = 4;
+  
   const generateRandomColor = () => {
     const hex = "0123456789ABCDEF";
     let newColor = "#";
@@ -19,32 +20,35 @@ function RandomColorGrid() {
     for (let i = 0; i < rows * cols; i++) {
       newGridColors.push(generateRandomColor());
     }
-    console.log(newGridColors);
     return newGridColors;
   };
 
-  const handleRegenrateClick = () => {
+  const handleRegenerateClick = () => {
     setGridColors(generateGridColors());
   };
 
   useEffect(() => {
-    setGridColors(generateRandomColor());
+    setGridColors(generateGridColors());
   }, []);
 
   return (
-    <div
-      style={{
-        display: "grid",
-        gap: "10px",
-        padding: "10px",
-      }}
-    >
-      {/* {gridColors.map((color, index) => (
-        <RandomColorBox key={index} newColor={color} />
-      ))} */}
+    <div>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: `repeat(${cols}, 1fr)`,
+          gridTemplateRows: `repeat(${rows}, 1fr)`,
+          gap: "10px",
+          padding: "10px",
+        }}
+      >
+        {gridColors.map((color, index) => (
+          <RandomColorBox key={index} newColor={color} />
+        ))}
+      </div>
       <button
-        onClick={handleRegenrateClick}
-        style={{ gridColumn: "1 / -1", marginTop: "10px" }}
+        onClick={handleRegenerateClick}
+        style={{ width: "100%", padding: "10px", marginTop: "10px" }}
       >
         Regenerate Grid
       </button>

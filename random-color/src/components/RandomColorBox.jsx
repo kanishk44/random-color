@@ -4,29 +4,19 @@ function RandomColorBox({ newColor }) {
   return (
     <div
       style={{
+        backgroundColor: newColor,
+        width: "100%",
+        height: "100px",
+        border: "1px solid #ccc",
         display: "flex",
-        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        minHeight: "100vh",
+        fontSize: "1rem",
+        color: "#fff",
+        textShadow: "1px 1px 1px rgba(0,0,0,0.5)"
       }}
     >
-      <div
-        style={{
-          backgroundColor: color,
-          width: "200px",
-          height: "100px",
-          border: "1px solid #ccc",
-          marginBottom: "20px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontSize: "1.2rem",
-        }}
-      >
-        {newColor}
-      </div>
-      <button onClick={handleGenerateClick}>Generate Random Color</button>
+      {newColor}
     </div>
   );
 }
